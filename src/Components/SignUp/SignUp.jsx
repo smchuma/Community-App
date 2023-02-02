@@ -10,7 +10,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 import "../Login/Login.scss";
 
@@ -20,8 +19,8 @@ const SignUp = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [show, setShow] = useState();
-  const [loading, setLoading] = useState(false);
+  const [show] = useState();
+  const [loading] = useState(false);
 
   const handleSubmit = () => {};
   return (
@@ -43,43 +42,44 @@ const SignUp = () => {
         </div>
         <div className="form">
           <Stack gap="15px">
-            <FormControl id="first-name" isRequired>
-              <FormLabel>First name</FormLabel>
+            <FormControl id="first-name" variant="floating" isRequired>
               <Input
-                placeholder="Enter your first name"
                 onChange={(e) => setFirstName(e.target.value)}
                 value={firstName}
                 className="input"
+                placeholder=" "
               />
+              <FormLabel>First name</FormLabel>
             </FormControl>
-            <FormControl id="last-name" isRequired>
-              <FormLabel>Last name</FormLabel>
+            <FormControl id="last-name" variant="floating" isRequired>
               <Input
-                placeholder="Enter your last name"
                 onChange={(e) => setLastName(e.target.value)}
                 value={lastName}
                 className="input"
+                placeholder=" "
               />
+              <FormLabel>Last name</FormLabel>
             </FormControl>
-            <FormControl id="email" isRequired>
-              <FormLabel>Email</FormLabel>
+            <FormControl id="email" variant="floating" isRequired>
               <Input
-                placeholder="Enter your email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 className="input"
+                placeholder=" "
               />
+              <FormLabel>Email</FormLabel>
             </FormControl>
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+            <FormControl id="password" variant="floating" isRequired>
               <InputGroup>
                 <Input
                   type={show ? "text" : "password"}
-                  placeholder="Enter your password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   className="input"
+                  placeholder=" "
                 />
+                <FormLabel>Password</FormLabel>
+
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={() => {}}>
                     {show ? "Hide" : "Show"}
@@ -87,16 +87,16 @@ const SignUp = () => {
                 </InputRightElement>
               </InputGroup>
             </FormControl>
-            <FormControl id="confirm-password" isRequired>
-              <FormLabel>Confirm Password</FormLabel>
+            <FormControl id="confirm-password" variant="floating" isRequired>
               <InputGroup>
                 <Input
                   type={show ? "text" : "password"}
-                  placeholder="Enter your password"
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   value={confirmPassword}
                   className="input"
+                  placeholder=" "
                 />
+                <FormLabel>Confirm Password</FormLabel>
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={() => {}}>
                     {show ? "Hide" : "Show"}

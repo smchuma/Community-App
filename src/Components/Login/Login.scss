@@ -1,3 +1,5 @@
+@import "./../../sass/config.scss";
+
 .container {
   display: flex;
   width: 100%;
@@ -5,15 +7,14 @@
 
   .left {
     flex: 1;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
-      url("../../../public/assets/images/people.jpg");
+    background: url("../../../public/assets/images/people.jpg");
     background-position: center;
     background-size: cover;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
 
     .logo {
       img {
         width: 20%;
+        margin: 10px 20px;
       }
     }
   }
@@ -45,9 +46,31 @@
     .form {
       width: 80%;
 
-      .input {
-        &::placeholder {
-          color: #a32a29;
+      .hr-lines {
+        margin-top: 20px;
+        position: relative;
+
+        &::before {
+          content: "";
+          display: block;
+          width: 45%;
+          height: 1px;
+          background: #a32a29;
+          margin: 0 auto;
+          position: absolute;
+          top: 65%;
+          left: 0%;
+        }
+        &::after {
+          content: "";
+          display: block;
+          width: 45%;
+          height: 1px;
+          background: #a32a29;
+          margin: 0 auto;
+          position: absolute;
+          top: 65%;
+          right: 0%;
         }
       }
     }

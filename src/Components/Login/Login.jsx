@@ -8,6 +8,7 @@ import {
   Button,
   Text,
   Flex,
+  Box,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import React, { useState } from "react";
@@ -17,10 +18,12 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [show, setShow] = useState();
-  const [loading, setLoading] = useState(false);
+  const [show] = useState();
+  const [loading] = useState(false);
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    window.location.href = "/feed";
+  };
 
   return (
     <div className="container">
@@ -36,25 +39,25 @@ const Login = () => {
         </div>
         <div className="form">
           <Stack gap="15px">
-            <FormControl id="email" isRequired>
-              <FormLabel>Email</FormLabel>
+            <FormControl id="email" isRequired variant="floating">
               <Input
-                placeholder="Enter your email"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 className="input"
+                placeholder=" "
               />
+              <FormLabel>Email</FormLabel>
             </FormControl>
-            <FormControl id="password" isRequired>
-              <FormLabel>Password</FormLabel>
+            <FormControl id="password" isRequired variant="floating">
               <InputGroup>
                 <Input
                   type={show ? "text" : "password"}
-                  placeholder="Enter your password"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   className="input"
+                  placeholder=" "
                 />
+                <FormLabel className="color">Password</FormLabel>
                 <InputRightElement width="4.5rem">
                   <Button h="1.75rem" size="sm" onClick={() => {}}>
                     {show ? "Hide" : "Show"}
@@ -76,9 +79,24 @@ const Login = () => {
             >
               Login
             </Button>
+            <Box
+              style={{
+                marginTop: "30px",
+                textAlign: "center",
+              }}
+            >
+              <Flex justifyContent="space-between">
+                <Link to="/signup">
+                  <Text cursor="pointer">Create an account?</Text>
+                </Link>
+                <Text cursor="pointer">forgot Password</Text>
+              </Flex>
+              <Text className="hr-lines">or</Text>
+            </Box>
             <Button
               style={{
                 gap: "5px",
+                fontWeight: "500",
                 boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)",
               }}
             >
@@ -87,14 +105,8 @@ const Login = () => {
                   fontSize: "20px",
                 }}
               />
-              Google
+              Log in with Google
             </Button>
-            <Flex justifyContent="space-between">
-              <Link to="/signup">
-                <Text cursor="pointer">Create an account?</Text>
-              </Link>
-              <Text cursor="pointer">forgot Password</Text>
-            </Flex>
           </Stack>
         </div>
       </div>
