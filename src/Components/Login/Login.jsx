@@ -22,7 +22,7 @@ const Login = () => {
   const [loading] = useState(false);
 
   const handleSubmit = () => {
-    window.location.href = "/feed";
+    window.location.href = "/home";
   };
 
   return (

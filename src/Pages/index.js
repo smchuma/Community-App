@@ -1,1 +1,1 @@
-export { default as NewsFeed } from "./NewsFeed/NewsFeed";
+export { default as Home } from "./Home/Home";
