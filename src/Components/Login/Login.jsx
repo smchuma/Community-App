@@ -9,6 +9,7 @@ import {
   Text,
   Flex,
   Box,
+  Avatar,
 } from "@chakra-ui/react";
 import { FcGoogle } from "react-icons/fc";
 import React, { useState } from "react";
@@ -24,90 +25,95 @@ const Login = () => {
   const handleSubmit = () => {
     window.location.href = "/home";
   };
-
   return (
     <div className="container">
-      <div className="left">
-        <div className="logo">
-          <img src="assets/images/logo.png" alt="logo" />
+      <div className="container-content">
+        <div className="left">
+          <div className="logo">
+            <img src="assets/images/logo.png" alt="logo" />
+          </div>
         </div>
-      </div>
-      <div className="right">
-        <div className="title">
-          <h1>The EGF Scholar Platform</h1>
-          <h2>Welcome back</h2>
-        </div>
-        <div className="form">
-          <Stack gap="15px">
-            <FormControl id="email" isRequired variant="floating">
-              <Input
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                className="input"
-                placeholder=" "
-              />
-              <FormLabel>Email</FormLabel>
-            </FormControl>
-            <FormControl id="password" isRequired variant="floating">
-              <InputGroup>
+        <div className="right">
+          <div className="title">
+            <h1>The EGF Scholar Platform</h1>
+            <div className="circle">
+              <img src="assets/images/login.gif" alt="login" />
+            </div>
+            <h2>Welcome back</h2>
+          </div>
+          <div className="form">
+            <Stack gap="15px">
+              <FormControl id="email" isRequired variant="floating">
                 <Input
-                  type={show ? "text" : "password"}
-                  onChange={(e) => setPassword(e.target.value)}
-                  value={password}
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                   className="input"
                   placeholder=" "
                 />
-                <FormLabel className="color">Password</FormLabel>
-                <InputRightElement width="4.5rem">
-                  <Button h="1.75rem" size="sm" onClick={() => {}}>
-                    {show ? "Hide" : "Show"}
-                  </Button>
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            <Button
-              className="btn"
-              width="100%"
-              style={{
-                marginTop: "20px",
-                backgroundColor: "#BE5529",
-                color: "white",
-                fontWeight: "400",
-              }}
-              onClick={handleSubmit}
-              isLoading={loading}
-            >
-              Login
-            </Button>
-            <Box
-              style={{
-                marginTop: "30px",
-                textAlign: "center",
-              }}
-            >
-              <Flex justifyContent="space-between">
-                <Link to="/signup">
-                  <Text cursor="pointer">Create an account?</Text>
-                </Link>
-                <Text cursor="pointer">forgot Password</Text>
-              </Flex>
-              <Text className="hr-lines">or</Text>
-            </Box>
-            <Button
-              style={{
-                gap: "5px",
-                fontWeight: "500",
-                boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              <FcGoogle
+                <FormLabel>Email</FormLabel>
+              </FormControl>
+              <FormControl id="password" isRequired variant="floating">
+                <InputGroup>
+                  <Input
+                    type={show ? "text" : "password"}
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    className="input"
+                    placeholder=" "
+                  />
+                  <FormLabel className="color">Password</FormLabel>
+                  <InputRightElement width="4.5rem">
+                    <Button h="1.75rem" size="sm" onClick={() => {}}>
+                      {show ? "Hide" : "Show"}
+                    </Button>
+                  </InputRightElement>
+                </InputGroup>
+              </FormControl>
+              <Button
+                className="btn"
+                width="100%"
                 style={{
-                  fontSize: "20px",
+                  marginTop: "20px",
+                  backgroundColor: "#BE5529",
+                  color: "white",
+                  fontWeight: "400",
                 }}
-              />
-              Log in with Google
-            </Button>
-          </Stack>
+                onClick={handleSubmit}
+                isLoading={loading}
+              >
+                Login
+              </Button>
+              <Box
+                style={{
+                  marginTop: "30px",
+                  textAlign: "center",
+                }}
+              >
+                <Flex justifyContent="space-between">
+                  <Link to="/signup">
+                    <Text cursor="pointer">Create an account?</Text>
+                  </Link>
+                  <Text cursor="pointer">forgot Password</Text>
+                </Flex>
+                <Text className="hr-lines">or</Text>
+              </Box>
+              <Button
+                style={{
+                  gap: "5px",
+                  fontWeight: "500",
+                  boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.2)",
+                  marginBottom: "50px",
+                }}
+              >
+                <FcGoogle
+                  style={{
+                    fontSize: "20px",
+                  }}
+                />
+                Log in with Google
+              </Button>
+            </Stack>
+          </div>
         </div>
       </div>
     </div>
